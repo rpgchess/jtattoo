@@ -71,11 +71,33 @@ public class Main {
 }
 ```
 
-## 🔧 Compilação
+## 🔧 Compilação e Execução
+
+### Opção 1: Com Maven
+
+```bash
+# Build
+mvn clean compile
+
+# Executar
+mvn exec:java -Dexec.mainClass="Main"
+```
+
+### Opção 2: Com Gradle
+
+```bash
+# Build
+gradle build
+
+# Executar
+gradle run
+```
+
+### Opção 3: Linha de Comando
 
 ```bash
 # Compilar
-javac -cp .:jtattoo.jar src/*.java
+javac -cp .:jtattoo.jar src/**/*.java
 
 # Executar
 java -cp .:jtattoo.jar:src Main
@@ -99,10 +121,66 @@ java -cp .:jtattoo.jar:src Main
 implementation 'com.jtattoo:JTattoo:1.6.13'
 ```
 
+## 🎨 Exemplos de Temas
+
+### Aplicar Diferentes Temas
+
+```java
+// Acryl (Translúcido moderno)
+UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
+
+// Aero (Windows Vista/7)
+UIManager.setLookAndFeel("com.jtattoo.plaf.aero.AeroLookAndFeel");
+
+// Noire (Dark theme)
+UIManager.setLookAndFeel("com.jtattoo.plaf.noire.NoireLookAndFeel");
+
+// McWin (MacOS style)
+UIManager.setLookAndFeel("com.jtattoo.plaf.mcwin.McWinLookAndFeel");
+
+// Graphite (Cinza grafite)
+UIManager.setLookAndFeel("com.jtattoo.plaf.graphite.GraphiteLookAndFeel");
+```
+
+### Customização de Cores
+
+```java
+Properties props = new Properties();
+props.put("logoString", "Minha Aplicação");
+props.put("backgroundPattern", "true");
+props.put("focusCellColor", "255 255 0");
+
+AcrylLookAndFeel.setCurrentTheme(props);
+UIManager.setLookAndFeel(new AcrylLookAndFeel());
+```
+
+## 💡 Conceitos Demonstrados
+
+- Look and Feel API do Java Swing
+- Customização de UI em runtime
+- Properties e configuração de temas
+- Integração de bibliotecas de terceiros
+- UIManager e configuração global
+
+## ⚙️ Melhorias Implementadas
+
+### ✅ Configuração
+- **EditorConfig** adicionado para encoding UTF-8
+- Indentação Java configurada (tabs, 4 espaços)
+
+### ✅ Documentação
+- README expandido com exemplos de código
+- Múltiplas opções de build documentadas
+- Exemplos de todos os temas principais
+- Customização de cores explicada
+- Dependências Maven/Gradle atualizadas
+
 ## 🔗 Links Úteis
 
 - [JTattoo Official Site](http://www.jtattoo.net/)
 - [JTattoo GitHub](https://github.com/JTattoo/JTattoo)
+- [Java Look and Feel Guide](https://docs.oracle.com/javase/tutorial/uiswing/lookandfeel/)
+- [Swing UIManager](https://docs.oracle.com/javase/8/docs/api/javax/swing/UIManager.html)
 
 ## 👨‍💻 Autor
 
